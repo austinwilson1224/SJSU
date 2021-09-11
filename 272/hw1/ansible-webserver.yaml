@@ -3,8 +3,14 @@
   become: true 
 
   tasks:
+    - name: update and upgrade apt packages
+      become: true
+      apt:
+        upgrade: yes
+        update_cache: yes
+        cache_valid_time: 86400
     - name: install apache
-      yum: pkg=apache2 state=latest
+      apt: pkg=apache2 update_cache=yes state=latest
 
     - name: copy html file 
       template: 
