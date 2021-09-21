@@ -11,9 +11,15 @@ auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
 
 me = api.me()
-print(me.screen_name)
 name = me.screen_name
 tweets = api.user_timeline(name)
+
+tweets = [
+    "test tweet 1",
+    "test 2",
+    "some random useless stuff",
+    "the latest and greatest"
+]
 
 
 
@@ -25,12 +31,14 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
+
     if request.method == "POST":
         content = request.form['content']
-        new_status = api.update_status(content)
+        tweets.push(content)
+        # new_status = api.update_status(content)
         print(content)
 
-    return render_template("index.html", name=name)
+    return render_template("index.html", name=name, tweets=tweets)
 
 @app.route("/status", methods=["GET", "POST"])
 def post_status():
@@ -49,6 +57,10 @@ def get_latest():
 def get_status():
     pass
 
+
+@app.route("/remove_status", methods=["GET", "DELETE"])
+def remove_status():
+    return render_template("remove_status.html", tweets=tweets)
 
 
 
