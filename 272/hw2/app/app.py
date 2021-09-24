@@ -5,14 +5,20 @@ from keys import consumer_key, consumer_secret, access_token, access_token_secre
 # print(consumer_key, consumer_secret, access_token, access_token_secret)
 
 # authorization 
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
+try:
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
 
-api = tweepy.API(auth)
+    api = tweepy.API(auth)
 
-me = api.me()
-name = me.screen_name
-tweets = api.user_timeline(name)
+    me = api.me()
+    name = me.screen_name
+    tweets = api.user_timeline(name)
+except:
+    me = None
+    name = None
+    tweets = None
+    print('test')
 
 # tweets = [
     
@@ -43,12 +49,18 @@ def home():
         new_status = api.update_status(content)
         print(content)
 
-    tweets = api.user_timeline(name)
+    try:
+        tweets = api.user_timeline(name)
+    except:
+        tweets = None
     return render_template("index.html", name=name, tweets=tweets)
 
 @app.route("/tweet:<id>", methods=["GET", "POST"])
 def get_single_tweet(id):
-    tweet = [api.get_status(id)]
+    try:
+        tweet = [api.get_status(id)]
+    except:
+        tweet = None
     return render_template("index.html", tweets=tweet)
 
 
@@ -60,7 +72,10 @@ def post_status():
 @app.route("/remove_status:<id>", methods=["GET", "POST"])
 def get_status(id):
     print(id)
-    api.destroy_status(id)
+    try:
+        api.destroy_status(id)
+    except:
+        print('error')
     return redirect("/")
 
 
