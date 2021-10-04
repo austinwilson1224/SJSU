@@ -30,10 +30,10 @@
       template: 
         src: ports.conf.j2
         dest: /etc/apache2/ports.conf
-    # - name: undeplys apache
-    #   service:
-    #     name: apache2
-    #     state: stopped
+    - name: undeplys apache
+      service:
+        name: apache2
+        state: stopped
 
   handlers: 
     - name: Reload Apache
