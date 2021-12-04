@@ -1,2 +1,4 @@
 - this is for the clustering techniques hw assignment 
 - please see the clustering_hw.ipynb file or the html ... thank you
+- https://towardsdatascience.com/dbscan-clustering-explained-97556a2ad556#:~:text=DBSCAN%20stands%20for%20density%2Dbased,many%20points%20from%20that%20cluster.
+- https://medium.com/nerd-for-tech/k-means-python-implementation-from-scratch-8400f30b8e5c
