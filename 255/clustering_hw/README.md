@@ -1,0 +1,2 @@
+- this is for the clustering techniques hw assignment 
+- please see the clustering_hw.ipynb file or the html ... thank you
