@@ -1,0 +1,2 @@
+- this is the aprioro assignment 
+- Write a colab to demonstrate frequent pattern mining apriori and fpgrowth
