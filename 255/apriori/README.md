@@ -3,3 +3,4 @@
 - reference : https://www.youtube.com/watch?v=BKbsCvE7pJA
 - reference : https://github.com/AmitHasanShuvo/Machine-Learning-Projects/blob/master/Apriori%20Algorithm/Implementation%20of%20Apriori%20Algorithm.ipynb
 - data: http://archive.ics.uci.edu/ml/machine-learning-databases/00352/
+- https://analyticsindiamag.com/understanding-association-rule-learning-its-role-in-data-mining/
